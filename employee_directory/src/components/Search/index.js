@@ -1,15 +1,37 @@
 import React from "react";
 
-function Search(){
+function Search(props){
     let styles = {
-        h1: {
+        form: {
             textDecoration: "underline",
             color: "blue",
         }
     }
     return(
         <>
-        <h1 style = {styles.h1}>EMPLOYEE DIRECTORY</h1>
+     <main>
+        <form id="searchForm" onSubmit={props.handleSearch} style={styles.form}>
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Type employee name..."
+            aria-label="Recipient's username"
+            aria-describedby="button-addon2"
+            name="search"
+            onChange={props.handleChange}
+            value={props.value}
+            id="employees"
+          />
+          <button
+            className="btn btn-outline-primary"
+            onClick={props.handleSearch}
+            type="submit"
+            id="search"
+          >
+            Search
+          </button>
+        </form>
+      </main>
         </>
     )
 }
